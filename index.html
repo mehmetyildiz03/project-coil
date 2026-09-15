@@ -1,25 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
-  <meta name="theme-color" content="#071016" />
-  <title>PROJECT COIL — Feel Lab</title>
+  <meta name="theme-color" content="#111816" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>PROJECT COIL — Classic Snake</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="game"></canvas>
-  <div id="hud">
-    <div class="score" id="score">000000</div>
-    <div class="meta" id="meta">LENGTH 285</div>
-    <div class="hint" id="hint">Touch + drag anywhere to steer</div>
-  </div>
-  <div id="dead" class="hidden">
-    <div class="dead-card">
-      <div class="dead-title" id="deadTitle">SELF COLLISION</div>
-      <div class="dead-sub" id="deadSub"></div>
-    </div>
-  </div>
+  <main class="app-shell">
+    <section class="game-frame" aria-label="PROJECT COIL klasik yılan oyunu">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">PROJECT COIL</div>
+          <h1>CLASSIC SNAKE</h1>
+        </div>
+        <button id="soundBtn" class="icon-btn" type="button" aria-label="Sesi aç veya kapat">SOUND ON</button>
+      </header>
+
+      <div class="lcd-wrap">
+        <div class="lcd-bezel">
+          <div class="lcd-status" aria-live="polite">
+            <span>SCORE <strong id="score">0000</strong></span>
+            <span>BEST <strong id="best">0000</strong></span>
+            <span>LV <strong id="level">1</strong></span>
+          </div>
+          <canvas id="game" aria-label="Yılan oyun alanı"></canvas>
+          <div id="overlay" class="overlay">
+            <div class="overlay-title" id="overlayTitle">READY?</div>
+            <div class="overlay-copy" id="overlayCopy">Kaydır veya yön tuşuna bas</div>
+            <button id="startBtn" class="primary-btn" type="button">START</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Yön kontrolleri">
+        <button class="dpad up" data-dir="up" type="button" aria-label="Yukarı">▲</button>
+        <button class="dpad left" data-dir="left" type="button" aria-label="Sol">◀</button>
+        <button class="dpad center" id="pauseBtn" type="button" aria-label="Duraklat">II</button>
+        <button class="dpad right" data-dir="right" type="button" aria-label="Sağ">▶</button>
+        <button class="dpad down" data-dir="down" type="button" aria-label="Aşağı">▼</button>
+      </div>
+
+      <p class="hint">Ekranda kaydır • D-pad • Ok tuşları / WASD</p>
+    </section>
+  </main>
   <script src="game.js"></script>
 </body>
 </html>
