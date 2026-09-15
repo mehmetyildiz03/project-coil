@@ -1,46 +1,68 @@
-# PROJECT COIL — P0 Feel Lab
+# PROJECT COIL — Classic Snake
 
-This package contains the first playable foundation for the mobile/tablet snake game.
+PROJECT COIL is now built around the classic Nokia-era Snake loop: discrete grid movement, four directions, one food target, growth, increasing speed, and unforgiving wall/self collision.
 
-## What is implemented
+## Current playable build
 
-- 360° continuous steering
-- Dynamic invisible joystick: touch/click anywhere, drag to steer
-- Smoothing-limited turning instead of instant snapping
-- Path-history body model with a tapering tail
-- Camera follow + gradual zoom-out as the snake grows
-- Food collection, score and growth
-- Self-collision after the snake is long enough
-- Arena-edge death
-- Fast tap/R restart
-- Landscape-first responsive browser playtest
-- Matching Godot 4.x project foundation
+The repository root is the canonical web playtest.
 
-## Fastest playtest
+Implemented:
 
-Open `index.html` in a desktop browser. It also supports touch/pointer input on mobile/tablet when hosted as a static site.
+- 20×28 logical grid
+- Four-direction movement with instant grid turns
+- Swipe controls on the playfield
+- On-screen D-pad for mobile/tablet
+- Arrow-key and WASD desktop controls
+- Food spawning only on free cells
+- Growth by one cell per food
+- Wall and self collision
+- Increasing speed every 5 foods
+- Level-scaled score
+- Local best-score persistence
+- Pause/resume and automatic pause when the app loses focus
+- Small retro square-wave sound cues
+- Haptic feedback where the browser/device supports it
+- Responsive portrait-first LCD presentation with landscape tablet layout
 
-## Godot
+## Play
 
-Open `godot/project.godot` in a current Godot 4.x stable build and run the project.
+Open `index.html` directly on desktop, or host the repository as a static site for mobile/tablet play.
 
-The project deliberately uses no external art assets yet. P0 is about movement feel and input quality, not content.
+The intended GitHub Pages URL is:
 
-## P0 acceptance checklist
+`https://mehmetyildiz03.github.io/project-coil/`
 
-1. Steering should feel predictable with one finger.
-2. Releasing the finger must keep the current heading.
-3. Tiny finger movement inside the dead-zone must not cause jitter.
-4. Large direction changes should curve rather than snap.
-5. The body should follow the travelled path without accordion stretching.
-6. Camera zoom must never jump.
-7. Death must have an obvious cause.
-8. Restart should be effectively immediate.
+## Product direction
 
-## Next milestone
+The design target is not a modern `.io` snake game. It is:
 
-Do not add progression systems until the feel is approved. Next work should tune speed/turn radius/camera, then add Flow (near-miss + risk) and adaptive mutation telemetry.
+> Nokia-era Snake clarity and tension, rebuilt as a polished modern mobile/tablet game.
 
-## GitHub Pages
+The classic game loop stays simple. New systems should be added as separate modes or presentation layers rather than making the core rules noisy.
 
-The playable web build is served from the repository root (`index.html`).
+## Next milestones
+
+### C1 — Core feel
+- Tune grid size, initial tick speed, acceleration curve and swipe threshold on real phones/tablets.
+- Validate buffered turns at high speed.
+- Improve pixel-perfect LCD rendering across aspect ratios.
+
+### C2 — Classic polish
+- Better retro audio set.
+- Optional LCD persistence/ghosting effect.
+- Game-start countdown and score feedback.
+- Settings for sound, haptics and control preference.
+
+### C3 — Modes
+- Classic: walls kill.
+- Endless: edge wraps to the opposite side.
+- Maze: fixed obstacles and passages.
+- Challenge: target score/length/time objectives.
+
+### C4 — Native Godot build
+
+The existing `godot/` directory came from the older free-steering P0 prototype and is not the canonical gameplay implementation anymore. It will be replaced by the same grid rules after the browser feel is approved.
+
+## Rule
+
+Do not add skins, progression, seasons, multiplayer or monetization until the classic Snake movement is excellent on an actual phone.
