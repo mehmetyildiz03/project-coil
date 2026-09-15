@@ -5,7 +5,7 @@
   const ROWS = 28;
   const START_DELAY = 150;
   const MIN_DELAY = 62;
-  const SPEED_STEP = 9;
+  const SPEED_PER_FOOD = 3;
   const FOODS_PER_LEVEL = 5;
   const SWIPE_THRESHOLD = 18;
   const STORE_KEY = 'project-coil-classic-best';
@@ -128,7 +128,7 @@
   }
 
   function tickDelay() {
-    return Math.max(MIN_DELAY, START_DELAY - (currentLevel() - 1) * SPEED_STEP);
+    return Math.max(MIN_DELAY, START_DELAY - foodsEaten * SPEED_PER_FOOD);
   }
 
   function updateHud() {
