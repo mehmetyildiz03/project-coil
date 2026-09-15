@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
   <meta name="theme-color" content="#111816" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="COIL" />
   <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="PROJECT COIL" />
   <title>PROJECT COIL — Classic Snake</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -48,5 +54,12 @@
     </section>
   </main>
   <script src="game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
