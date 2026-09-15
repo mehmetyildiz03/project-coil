@@ -8,6 +8,7 @@
   const SPEED_PER_FOOD = 3;
   const FOODS_PER_LEVEL = 5;
   const SWIPE_THRESHOLD = 18;
+  const INPUT_BUFFER_SIZE = 2;
   const STORE_KEY = 'project-coil-classic-best';
 
   const canvas = document.getElementById('game');
@@ -31,7 +32,7 @@
 
   let snake = [];
   let direction = DIRS.right;
-  let queuedDirection = DIRS.right;
+  let inputQueue = [];
   let food = { x: 0, y: 0 };
   let score = 0;
   let best = loadBest();
@@ -92,7 +93,7 @@
       { x: cx - 3, y: cy }
     ];
     direction = DIRS.right;
-    queuedDirection = DIRS.right;
+    inputQueue = [];
     score = 0;
     foodsEaten = 0;
     running = false;
@@ -151,18 +152,26 @@
     food = free[Math.floor(Math.random() * free.length)];
   }
 
+  function sameDirection(a, b) {
+    return a.x === b.x && a.y === b.y;
+  }
+
   function isOpposite(a, b) {
     return a.x + b.x === 0 && a.y + b.y === 0;
   }
 
   function queueDirection(dir) {
-    if (!dir || isOpposite(dir, direction)) return;
-    queuedDirection = dir;
+    if (!dir) return false;
+    const base = inputQueue.length ? inputQueue[inputQueue.length - 1] : direction;
+    if (sameDirection(dir, base) || isOpposite(dir, base)) return false;
+    if (inputQueue.length >= INPUT_BUFFER_SIZE) return false;
+    inputQueue.push(dir);
     if (!running && !dead) startGame();
+    return true;
   }
 
   function step() {
-    direction = queuedDirection;
+    if (inputQueue.length) direction = inputQueue.shift();
     const head = snake[0];
     const next = { x: head.x + direction.x, y: head.y + direction.y };
     const ate = next.x === food.x && next.y === food.y;
@@ -199,6 +208,7 @@
     running = false;
     paused = false;
     dead = true;
+    inputQueue = [];
     if (score > best) {
       best = score;
       saveBest();
@@ -213,6 +223,7 @@
   function winGame() {
     running = false;
     dead = true;
+    inputQueue = [];
     showOverlay('PERFECT!', `GRID CLEARED • SCORE ${String(score).padStart(4, '0')}`, 'AGAIN');
   }
 
@@ -225,6 +236,7 @@
     paused = !paused;
     running = !paused;
     accumulator = 0;
+    inputQueue = [];
     pauseBtn.textContent = paused ? '▶' : 'II';
     if (paused) showOverlay('PAUSED', 'Devam etmek için dokun', 'RESUME');
     else overlay.classList.add('hidden');
@@ -358,7 +370,7 @@
     btn.addEventListener('pointerdown', e => {
       e.preventDefault();
       ensureAudio();
-      queueDirection(DIRS[btn.dataset.dir]);
+      if (queueDirection(DIRS[btn.dataset.dir])) vibrate(5);
     }, { passive: false });
   });
 
@@ -378,6 +390,7 @@
     if (document.hidden && running && !dead) {
       paused = true;
       running = false;
+      inputQueue = [];
       pauseBtn.textContent = '▶';
       showOverlay('PAUSED', 'Oyuna dönünce devam et', 'RESUME');
     }
