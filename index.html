@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#071016" />
+  <title>PROJECT COIL — Feel Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="hud">
+    <div class="score" id="score">000000</div>
+    <div class="meta" id="meta">LENGTH 285</div>
+    <div class="hint" id="hint">Touch + drag anywhere to steer</div>
+  </div>
+  <div id="dead" class="hidden">
+    <div class="dead-card">
+      <div class="dead-title" id="deadTitle">SELF COLLISION</div>
+      <div class="dead-sub" id="deadSub"></div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
