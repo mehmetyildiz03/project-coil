@@ -20,11 +20,14 @@
   <main class="app-shell">
     <section class="game-frame" aria-label="PROJECT COIL klasik yılan oyunu">
       <header class="topbar">
-        <div>
+        <div class="brand">
           <div class="eyebrow">PROJECT COIL</div>
           <h1>CLASSIC SNAKE</h1>
         </div>
-        <button id="soundBtn" class="icon-btn" type="button" aria-label="Sesi aç veya kapat">SOUND ON</button>
+        <div class="top-actions">
+          <button id="soundBtn" class="icon-btn sound-btn" type="button" aria-label="Sesi aç veya kapat">SOUND ON</button>
+          <button id="pauseBtn" class="icon-btn pause-btn" type="button" aria-label="Duraklat">II</button>
+        </div>
       </header>
 
       <div class="lcd-wrap">
@@ -46,7 +49,7 @@
       <div class="controls" aria-label="Yön kontrolleri">
         <button class="dpad up" data-dir="up" type="button" aria-label="Yukarı">▲</button>
         <button class="dpad left" data-dir="left" type="button" aria-label="Sol">◀</button>
-        <button class="dpad center" id="pauseBtn" type="button" aria-label="Duraklat">II</button>
+        <div class="dpad-center" aria-hidden="true"></div>
         <button class="dpad right" data-dir="right" type="button" aria-label="Sağ">▶</button>
         <button class="dpad down" data-dir="down" type="button" aria-label="Aşağı">▼</button>
       </div>
