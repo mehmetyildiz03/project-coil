@@ -1,9 +1,9 @@
-const CACHE = 'project-coil-pwa-v3';
+const CACHE = 'project-coil-pwa-v5';
 const APP_SHELL = [
   './',
   './index.html',
-  './style.css',
-  './game.js',
+  './style.css?v=5',
+  './game.js?v=5',
   './manifest.webmanifest',
   './icon.svg',
   './icons/app-icon-192.png',
