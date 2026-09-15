@@ -14,7 +14,7 @@
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
   <link rel="icon" href="icons/app-icon-192.png" sizes="192x192" type="image/png" />
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
   <main class="app-shell">
@@ -25,7 +25,7 @@
           <h1>CLASSIC SNAKE</h1>
         </div>
         <div class="top-actions">
-          <button id="soundBtn" class="icon-btn sound-btn" type="button" aria-label="Sesi aç veya kapat">SOUND ON</button>
+          <button id="soundBtn" class="icon-btn sound-btn" type="button" aria-label="Sesi aç veya kapat">SOUND</button>
           <button id="pauseBtn" class="icon-btn pause-btn" type="button" aria-label="Duraklat">II</button>
         </div>
       </header>
@@ -54,10 +54,10 @@
         <button class="dpad down" data-dir="down" type="button" aria-label="Aşağı">▼</button>
       </div>
 
-      <p class="hint">Ekranda kaydır • D-pad • Ok tuşları / WASD</p>
+      <p class="hint">Kaydır veya D-pad kullan</p>
     </section>
   </main>
-  <script src="game.js"></script>
+  <script src="game.js?v=5"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
