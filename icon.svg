@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PROJECT COIL icon">
+  <rect width="512" height="512" rx="112" fill="#111816"/>
+  <rect x="72" y="72" width="368" height="368" rx="52" fill="#b9c99a"/>
+  <g fill="#26352b">
+    <rect x="132" y="210" width="52" height="52" rx="7"/>
+    <rect x="184" y="210" width="52" height="52" rx="7"/>
+    <rect x="236" y="210" width="52" height="52" rx="7"/>
+    <rect x="288" y="210" width="52" height="52" rx="7"/>
+    <rect x="288" y="262" width="52" height="52" rx="7"/>
+    <rect x="288" y="314" width="52" height="52" rx="7"/>
+    <rect x="340" y="314" width="52" height="52" rx="7"/>
+    <rect x="116" y="118" width="40" height="40" rx="6"/>
+  </g>
+  <rect x="351" y="326" width="12" height="12" rx="2" fill="#b9c99a"/>
+</svg>
