@@ -1,0 +1,21 @@
+{
+  "name": "PROJECT COIL — Classic Snake",
+  "short_name": "COIL",
+  "description": "Nokia-era classic Snake inspired mobile game.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen"],
+  "orientation": "any",
+  "background_color": "#111816",
+  "theme_color": "#111816",
+  "categories": ["games"],
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
