@@ -1,11 +1,14 @@
-const CACHE = 'project-coil-pwa-v1';
+const CACHE = 'project-coil-pwa-v2';
 const APP_SHELL = [
   './',
   './index.html',
   './style.css',
   './game.js',
   './manifest.webmanifest',
-  './icon.svg'
+  './icon.svg',
+  './icons/app-icon-192.png',
+  './icons/app-icon-512.png',
+  './icons/apple-touch-icon.png'
 ];
 
 self.addEventListener('install', event => {
