@@ -3,7 +3,7 @@
 
   const COLS = 20;
   const ROWS = 28;
-  const START_DELAY = 165;
+  const START_DELAY = 150;
   const MIN_DELAY = 62;
   const SPEED_STEP = 9;
   const FOODS_PER_LEVEL = 5;
