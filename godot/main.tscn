@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource path="res://scripts/game.gd" type="Script" id="1_game"]
+[ext_resource path="res://scripts/snake.gd" type="Script" id="2_snake"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="Snake" type="Node2D" parent="."]
+script = ExtResource("2_snake")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = false
+
+[node name="HUD" type="CanvasLayer" parent="."]
